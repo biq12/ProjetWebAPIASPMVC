@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjetConsommant.Models.Categorie>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomCategorie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bestCategorie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grandCategorie)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomCategorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bestCategorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grandCategorie)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idCategorie }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idCategorie }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idCategorie })
+            </td>
+        </tr>
+    }
+
+</table>

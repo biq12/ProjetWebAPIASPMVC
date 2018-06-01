@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProjetConsommant.Models.mvcProduitModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bestProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomPhoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCategorie)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bestProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.color)
+            </td>
+            <td>
+                <img src="@Url.Content(item.nomPhoto)" width="90" height="80" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categorie.nomCategorie)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idProduit }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.idProduit })
+            </td>
+        </tr>
+    }
+
+</table>
